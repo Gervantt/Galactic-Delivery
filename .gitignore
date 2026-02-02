@@ -1,8 +1,5 @@
 /target/
 .idea/
 *.iml
-.project
-.classpath
-.settings/
 .DS_Store
-*.log
+
