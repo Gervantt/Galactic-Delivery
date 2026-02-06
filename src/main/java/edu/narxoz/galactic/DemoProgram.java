@@ -5,8 +5,10 @@ import edu.narxoz.galactic.bodies.SpaceStation;
 import edu.narxoz.galactic.cargo.Cargo;
 import edu.narxoz.galactic.dispatcher.Dispatcher;
 import edu.narxoz.galactic.dispatcher.Result;
-import edu.narxoz.galactic.drones.HeavyDrone;
-import edu.narxoz.galactic.drones.LightDrone;
+import edu.narxoz.galactic.drones.Drone;
+import edu.narxoz.galactic.factory.DroneCreator;
+import edu.narxoz.galactic.factory.HeavyDroneCreator;
+import edu.narxoz.galactic.factory.LightDroneCreator;
 import edu.narxoz.galactic.task.DeliveryTask;
 
 public class DemoProgram {
@@ -15,8 +17,11 @@ public class DemoProgram {
         Planet earth = new Planet("Earth", 0.0, 0.0, "Nitrogen-Oxygen");
         SpaceStation station = new SpaceStation("Orbital-1", 30.0, 40.0, 3);
 
-        LightDrone light = new LightDrone("LD-01", 10.0);
-        HeavyDrone heavy = new HeavyDrone("HD-99", 25.0);
+        DroneCreator lightCreator = new LightDroneCreator();
+        DroneCreator heavyCreator = new HeavyDroneCreator();
+
+        Drone light = lightCreator.create("LD-01", 10.0);
+        Drone heavy = heavyCreator.create("HD-99", 25.0);
 
         Cargo cargo = new Cargo(15.0, "Supply crate");
 
